@@ -2,8 +2,9 @@ const daysEl = document.getElementById("days");
 const hoursEl = document.getElementById("hours");
 const minutesEl = document.getElementById("minutes");
 const secondsEl = document.getElementById("seconds");
-
-const newBDay = "23 Mar 2023";
+let i = 2023;
+let j = i;
+const newBDay = "23 Mar" + i;
 
 function countdown() {
   const newBDate = new Date(newBDay);
@@ -21,6 +22,12 @@ function countdown() {
   minutesEl.innerHTML = minutes;
   secondsEl.innerHTML = seconds;
   console.log(days, hours, minutes, seconds);
+
+  if (days == 0 && hours == 0 && minutes == 0 && seconds == 0) {
+    j++;
+    i = j - 1;
+    newBDay = newBDay.replace(/i/g, j);
+  }
 }
 
 countdown();
